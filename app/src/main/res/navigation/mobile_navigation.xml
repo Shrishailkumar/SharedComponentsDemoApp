@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_deviceinfo">
+
+    <fragment
+        android:id="@+id/nav_deviceinfo"
+        android:name="com.zensar.sharedcomponents.ui.deviceinfo.DeviceInfo"
+        android:label="@string/menu_deviceinfo"
+        tools:layout="@layout/fragment_deviceinfo" />
+
+    <fragment
+        android:id="@+id/nav_camera_capture"
+        android:name="com.zensar.sharedcomponents.ui.cameracapture.CameraCaptureFragment"
+        android:label="@string/menu_cameracapture"
+        tools:layout="@layout/fragment_cameracapture" />
+
+    <fragment
+        android:id="@+id/nav_location_services"
+        android:name="com.zensar.sharedcomponents.ui.locationservices.LocationServicesFragment"
+        android:label="@string/menu_locationservices"
+        tools:layout="@layout/fragment_locationservices" />
+</navigation>

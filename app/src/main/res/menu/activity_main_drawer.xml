@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_deviceinfo"
+            android:icon="@drawable/arrow_right_black"
+            android:title="@string/menu_deviceinfo" />
+        <item
+            android:id="@+id/nav_camera_capture"
+            android:icon="@drawable/arrow_right_black"
+            android:title="@string/menu_cameracapture" />
+        <item
+            android:id="@+id/nav_location_services"
+            android:icon="@drawable/arrow_right_black"
+            android:title="@string/menu_locationservices" />
+    </group>
+</menu>
