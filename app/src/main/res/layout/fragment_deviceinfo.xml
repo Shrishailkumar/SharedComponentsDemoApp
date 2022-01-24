@@ -22,6 +22,7 @@
             android:text="@string/loading_mgs"
             android:textSize="22sp"
             android:textStyle="bold"
+			android:textColor="@color/design_default_color_primary_dark"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
