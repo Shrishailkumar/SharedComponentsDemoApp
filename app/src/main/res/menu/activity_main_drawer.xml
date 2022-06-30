@@ -13,7 +13,7 @@
             android:icon="@drawable/arrow_right_black"
             android:title="@string/menu_cameracapture" />
         <item
-            android:id="@+id/nav_location_services"
+            android:id="@+id/nav_fragment_service"
             android:icon="@drawable/arrow_right_black"
             android:title="@string/menu_locationservices" />
     </group>

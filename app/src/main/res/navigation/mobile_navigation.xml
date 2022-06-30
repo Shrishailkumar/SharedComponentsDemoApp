@@ -18,8 +18,10 @@
         tools:layout="@layout/fragment_cameracapture" />
 
     <fragment
-        android:id="@+id/nav_location_services"
-        android:name="com.zensar.sharedcomponents.ui.locationservices.LocationServicesFragment"
+        android:id="@+id/nav_fragment_service"
+        android:name="com.zensar.sharedcomponents.ui.elasticsearch.ElasticSearchFragment"
         android:label="@string/menu_locationservices"
-        tools:layout="@layout/fragment_locationservices" />
+        tools:layout="@layout/fragment_elasticsearch_services" />
+
+
 </navigation>

@@ -9,7 +9,7 @@
 
     <string name="menu_deviceinfo">Device Information</string>
     <string name="menu_cameracapture">Camera Capture</string>
-    <string name="menu_locationservices">Location Services</string>
+    <string name="menu_locationservices">Elastic Search</string>
     <string name="conccetivity_lost_text">No network to connect!</string>
     <string name="loading_mgs">Wait data Loading ...</string>
 </resources>

@@ -13,6 +13,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.android.appcomponents.model.DeviceInfo
+import com.android.appcomponents.util.DeviceInfoUtility
 import com.android.appcomponents.util.Utility
 import com.android.appcomponents.viewmodel.DeviceInfoViewModel
 import com.zensar.sharedcomponents.R
@@ -26,6 +27,9 @@ class DeviceInfo : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
     lateinit var mTvDeviceData : TextView
+    lateinit var mTvRam : TextView
+    lateinit var mTvBatteryPercentage: TextView
+    lateinit var mTvInstalledApps: TextView
     //the Component viewModel accessed here
     private lateinit var deviceInfoViewModel: DeviceInfoViewModel
     //the Component Class Utiltiy accessed here
@@ -45,6 +49,9 @@ class DeviceInfo : Fragment() {
         val root: View = binding.root
         //
         mTvDeviceData = binding.idDeviceInfo
+        mTvRam = binding.tvRam
+        mTvBatteryPercentage = binding.tvBattery
+        mTvInstalledApps = binding.tvInstalledApps
         //utilityLocOb.isNetworkConnected()
         if (!utilityLocOb.isNetworkConnected()) {
             Toast.makeText(activity, getString(R.string.conccetivity_lost_text), Toast.LENGTH_LONG).show()
@@ -62,6 +69,10 @@ class DeviceInfo : Fragment() {
     }
 
     private fun updateUI(build: DeviceInfo) {
+        //deviceInfoViewModel.
+        /*mTvRam.setTextColor(mTvRam.text+deviceInfoViewModel.())
+        mTvBatteryPercentage.setTextColor(mTvBatteryPercentage.text+deviceInfoViewModel.getBateryPercentage())
+        mTvInstalledApps.setTextColor(mTvInstalledApps.text+deviceInfoViewModel.installedApps())*/
         mTvDeviceData.setText( "SERIAL: " + build.serial + "\n" +
                 "MODEL: " + build.model + "\n" +
                 "ID: " + build.id + "\n" +
@@ -86,3 +97,5 @@ class DeviceInfo : Fragment() {
         _binding = null
     }
 }
+
+
