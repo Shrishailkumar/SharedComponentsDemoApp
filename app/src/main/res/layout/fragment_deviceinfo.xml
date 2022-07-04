@@ -4,64 +4,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ebfaf8"
     tools:context=".ui.deviceinfo.DeviceInfo">
 
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
-                android:visibility="gone"
-                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:id="@+id/tv_battery"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="22sp"
-                android:textColor="@color/black"
-                android:text="Battery Percentage = "
-                android:textStyle="bold"/>
+                android:textSize="20sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/design_default_color_primary_dark"
+                android:text="Battery Percentage : "
+                android:textStyle="bold"
+                android:elevation="8dp"
+                android:background="@drawable/rect_border_elevated"
+                />
             <TextView
-                android:visibility="gone"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:id="@+id/tv_ram"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:textColor="@color/black"
-                android:textSize="22sp"
-                android:text="RAM Details = "
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/design_default_color_primary_dark"
+                android:textSize="20sp"
+                android:text="Ram Details : "
+                android:elevation="8dp"
+                android:background="@drawable/rect_border_elevated"
                 android:textStyle="bold"/>
             <TextView
-                android:visibility="gone"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:id="@+id/tv_installed_Apps"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:textColor="@color/black"
-                android:textSize="22sp"
-                android:text="Apps installed = "
-                android:textStyle="bold"/>
+                android:layout_marginBottom="20dp"
+                android:textSize="20sp"
+                android:text="Apps installed : "
+                android:textStyle="bold"
+                android:textColor="@color/design_default_color_primary_dark"
+                android:elevation="8dp"
+                android:background="@drawable/rect_border_elevated"/>
 
             <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:id="@+id/id_deviceInfo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:background="@color/cardview_shadow_start_color"
                 android:text="@string/loading_mgs"
-                android:textSize="22sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/design_default_color_primary_dark"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:elevation="8dp"
+                android:background="@drawable/rect_border_elevated"/>
         </LinearLayout>
 
     </ScrollView>
