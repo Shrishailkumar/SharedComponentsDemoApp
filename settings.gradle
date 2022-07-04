@@ -3,7 +3,10 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
-        jcenter() // Warning: this repository is going to shut down soon
+       // jcenter() // Warning: this repository is going to shut down soon
+        flatDir {
+            dirs 'libs'
+        }
     }
 }
 rootProject.name = "Demo Apps For SharedComponent"
