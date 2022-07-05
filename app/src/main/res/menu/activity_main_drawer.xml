@@ -6,19 +6,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_deviceinfo"
-            android:icon="@drawable/arrow_right_black"
+            android:icon="@drawable/arrow_blue"
             android:title="@string/menu_deviceinfo" />
         <item
             android:id="@+id/nav_camera_capture"
-            android:icon="@drawable/arrow_right_black"
+            android:icon="@drawable/arrow_blue"
             android:title="@string/menu_cameracapture" />
         <item
             android:id="@+id/nav_fragment_service"
-            android:icon="@drawable/arrow_right_black"
+            android:icon="@drawable/arrow_blue"
             android:title="@string/menu_locationservices" />
         <item
             android:id="@+id/nav_fragment_network"
-            android:icon="@drawable/arrow_right_black"
+            android:icon="@drawable/arrow_blue"
             android:title="@string/menu_network_services" />
 
         <item
