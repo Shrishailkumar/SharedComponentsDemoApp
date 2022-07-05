@@ -10,9 +10,12 @@
     <string name="menu_deviceinfo">Device Information</string>
     <string name="menu_cameracapture">Camera Capture</string>
     <string name="menu_locationservices">Elastic Search</string>
+    <string name="menu_encryptionanddecryption">Encryption and Decryption</string>
     <string name="menu_network_services">Network Services</string>
     <string name="conccetivity_lost_text">No network to connect!</string>
     <string name="loading_mgs">Wait data Loading ...</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="retrofit">Retrofit</string>
     <string name="volley">Volley</string>
     <string name="menu_ui_component">UI Component</string>

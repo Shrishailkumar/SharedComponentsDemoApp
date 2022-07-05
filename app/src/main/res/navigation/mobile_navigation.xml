@@ -22,6 +22,11 @@
         android:name="com.zensar.sharedcomponents.ui.elasticsearch.ElasticSearchFragment"
         android:label="@string/menu_locationservices"
         tools:layout="@layout/fragment_elasticsearch_services" />
+    <fragment
+        android:id="@+id/nav_fragment_encryption"
+        android:name="com.zensar.sharedcomponents.ui.encryptionanddecryption.Encryptionanddecryption"
+        android:label="@string/menu_encryptionanddecryption"
+        tools:layout="@layout/fragment_encryptionanddecryption" />
 
     <fragment
         android:id="@+id/nav_fragment_network"
@@ -48,8 +53,10 @@
         android:name="com.zensar.sharedcomponents.ui.network.fragment.TodoFragment"
         android:label="@string/retrofit"
         tools:layout="@layout/fragment_todo" />
-
-
+    <fragment
+        android:id="@+id/cameraCaptureFragment"
+        android:name="com.android.cameracapturecomponent.views.CameraCaptureFragment"
+        android:label="CameraCaptureFragment" />
 
     <fragment
         android:id="@+id/nav_fragment_component_ui"
