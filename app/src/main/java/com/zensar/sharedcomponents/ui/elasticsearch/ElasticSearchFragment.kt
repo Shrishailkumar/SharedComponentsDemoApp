@@ -28,7 +28,9 @@ class ElasticSearchFragment : Fragment() {
         val root: View = binding.root
 
 
-        callElasticSearch()
+        binding.btnPerformElasticSearch?.setOnClickListener {
+            callElasticSearch()
+        }
 
         return root
     }
