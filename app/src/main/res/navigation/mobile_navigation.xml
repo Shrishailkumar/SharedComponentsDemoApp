@@ -51,5 +51,11 @@
 
 
 
+    <fragment
+        android:id="@+id/nav_fragment_component_ui"
+        android:name="com.zensar.sharedcomponents.ui.uicomponent.UIComponentFragment"
+        android:label="@string/menu_ui_component"
+        tools:layout="@layout/fragment_ui_component" />
+
 
 </navigation>

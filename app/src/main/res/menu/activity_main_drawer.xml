@@ -20,5 +20,10 @@
             android:id="@+id/nav_fragment_network"
             android:icon="@drawable/arrow_right_black"
             android:title="@string/menu_network_services" />
+
+        <item
+            android:id="@+id/nav_fragment_component_ui"
+            android:icon="@drawable/arrow_right_black"
+            android:title="@string/menu_ui_component" />
     </group>
 </menu>
