@@ -10,6 +10,9 @@
     <string name="menu_deviceinfo">Device Information</string>
     <string name="menu_cameracapture">Camera Capture</string>
     <string name="menu_locationservices">Elastic Search</string>
+    <string name="menu_network_services">Network Services</string>
     <string name="conccetivity_lost_text">No network to connect!</string>
     <string name="loading_mgs">Wait data Loading ...</string>
+    <string name="retrofit">Retrofit</string>
+    <string name="volley">Volley</string>
 </resources>
