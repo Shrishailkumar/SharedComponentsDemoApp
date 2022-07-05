@@ -23,7 +23,6 @@
 
     <style name="Theme.DemoAppsForSharedComponent.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-<<<<<<< Updated upstream
 
     <style name="full_screen_dialog">
         <item name="android:windowFrame">@null</item>
@@ -35,13 +34,12 @@
         <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
         <item name="android:windowMinWidthMajor">@android:dimen/dialog_min_width_major</item>
         <item name="android:windowMinWidthMinor">100%</item>
-=======
+    </style>
     <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/zensar_spalsh</item>
         <item name="colorPrimary">@color/design_default_color_primary</item>
         <item name="colorPrimaryDark">@color/design_default_color_primary_dark</item>
         <item name="colorAccent">@color/cardview_light_background</item>
         <item name="android:statusBarColor">@color/cardview_light_background</item>
->>>>>>> Stashed changes
     </style>
 </resources>
