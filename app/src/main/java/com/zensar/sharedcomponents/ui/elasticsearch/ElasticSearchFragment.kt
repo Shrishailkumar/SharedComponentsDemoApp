@@ -1,11 +1,13 @@
 package com.zensar.sharedcomponents.ui.elasticsearch
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.android.appcomponents.views.ElasticSearchActivity
 import com.zensar.sharedcomponents.databinding.FragmentElasticsearchServicesBinding
 
 class ElasticSearchFragment : Fragment() {
@@ -21,12 +23,24 @@ class ElasticSearchFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
- //add your view model here
+
         _binding = FragmentElasticsearchServicesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textSlideshow
+
+        callElasticSearch()
+
         return root
+    }
+
+    private fun callElasticSearch() {
+        var queryHashMap: HashMap<String, String>? = HashMap<String, String>()
+        val intent = Intent(activity, ElasticSearchActivity::class.java)
+        intent.putExtra("baseUrl","https://api.github.com/search/")
+        intent.putExtra("endPoint","repositories")
+        queryHashMap?.put("q","searchTerm")
+        intent.putExtra("map",queryHashMap)
+        activity?.startActivity(intent)
     }
 
     override fun onDestroyView() {
