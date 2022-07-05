@@ -23,5 +23,33 @@
         android:label="@string/menu_locationservices"
         tools:layout="@layout/fragment_elasticsearch_services" />
 
+    <fragment
+        android:id="@+id/nav_fragment_network"
+        android:name="com.zensar.sharedcomponents.ui.network.fragment.NetworkFragment"
+        android:label="@string/menu_network_services"
+        tools:layout="@layout/fragment_network" >
+        <action
+            android:id="@+id/action_nav_fragment_network_to_nav_network_volley"
+            app:destination="@id/nav_network_volley" />
+        <action
+            android:id="@+id/action_nav_fragment_network_to_nav_network_retrofit"
+            app:destination="@id/nav_network_retrofit" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/nav_network_volley"
+        android:name="com.zensar.sharedcomponents.ui.network.fragment.VolleyFragment"
+        android:label="@string/volley"
+        tools:layout="@layout/fragment_volley" />
+
+    <fragment
+        android:id="@+id/nav_network_retrofit"
+        android:name="com.zensar.sharedcomponents.ui.network.fragment.TodoFragment"
+        android:label="@string/retrofit"
+        tools:layout="@layout/fragment_todo" />
+
+
+
 
 </navigation>

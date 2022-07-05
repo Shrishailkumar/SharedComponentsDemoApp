@@ -16,5 +16,9 @@
             android:id="@+id/nav_fragment_service"
             android:icon="@drawable/arrow_right_black"
             android:title="@string/menu_locationservices" />
+        <item
+            android:id="@+id/nav_fragment_network"
+            android:icon="@drawable/arrow_right_black"
+            android:title="@string/menu_network_services" />
     </group>
 </menu>
