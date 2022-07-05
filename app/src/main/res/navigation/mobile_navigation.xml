@@ -18,10 +18,16 @@
         tools:layout="@layout/fragment_cameracapture" />
 
     <fragment
-        android:id="@+id/nav_fragment_service"
+        android:id="@+id/nav_elastic_search_with_ui"
         android:name="com.zensar.sharedcomponents.ui.elasticsearch.ElasticSearchFragment"
-        android:label="@string/menu_locationservices"
+        android:label="@string/menu_elastic_search_with_ui"
         tools:layout="@layout/fragment_elasticsearch_services" />
+
+    <fragment
+        android:id="@+id/nav_elastic_search_without_ui"
+        android:name="com.zensar.sharedcomponents.ui.elasticsearch.ElasticSearchWithoutUiFragment"
+        android:label="@string/menu_elastic_search_without_ui"
+        tools:layout="@layout/fragment_elasticsearch_without_ui" />
 
 
 </navigation>

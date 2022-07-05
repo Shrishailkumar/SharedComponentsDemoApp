@@ -19,10 +19,17 @@
         <entry key="..\:/Users/SM64254/AndroidStudioProjects/DemoAppsForSharedComponent/app/src/main/res/menu/activity_main_drawer.xml" value="0.1921875" />
         <entry key="..\:/Users/SM64254/AndroidStudioProjects/DemoAppsForSharedComponent/app/src/main/res/menu/main.xml" value="0.1921875" />
         <entry key="..\:/Users/SM64254/AndroidStudioProjects/DemoAppsForSharedComponent/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.20833333333333334" />
+        <entry key="..\:/Users/gb64286/Desktop/AppServiceComponents/src/main/res/layout/activity_elastic_search.xml" value="0.1" />
+        <entry key="..\:/Users/gb64286/Desktop/AppServiceComponents/src/main/res/layout/inflate_search_item.xml" value="0.1" />
+        <entry key="..\:/Users/gb64286/Desktop/AppServiceDemoApp/SharedComponentsDemoApp/app/src/main/res/layout/content_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/gb64286/Desktop/AppServiceDemoApp/SharedComponentsDemoApp/app/src/main/res/layout/fragment_deviceinfo.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/gb64286/Desktop/AppServiceDemoApp/SharedComponentsDemoApp/app/src/main/res/layout/fragment_elasticsearch_services.xml" value="0.22" />
+        <entry key="..\:/Users/gb64286/Desktop/AppServiceDemoApp/SharedComponentsDemoApp/app/src/main/res/layout/fragment_elasticsearch_without_ui.xml" value="0.1" />
+        <entry key="..\:/Users/gb64286/Desktop/AppServiceDemoApp/SharedComponentsDemoApp/app/src/main/res/menu/activity_main_drawer.xml" value="0.1" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

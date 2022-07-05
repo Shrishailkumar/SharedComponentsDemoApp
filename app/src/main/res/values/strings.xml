@@ -9,7 +9,8 @@
 
     <string name="menu_deviceinfo">Device Information</string>
     <string name="menu_cameracapture">Camera Capture</string>
-    <string name="menu_locationservices">Elastic Search</string>
+    <string name="menu_elastic_search_with_ui">Elastic Search With UI</string>
+    <string name="menu_elastic_search_without_ui">Elastic Search Without UI</string>
     <string name="conccetivity_lost_text">No network to connect!</string>
     <string name="loading_mgs">Wait data Loading ...</string>
 </resources>

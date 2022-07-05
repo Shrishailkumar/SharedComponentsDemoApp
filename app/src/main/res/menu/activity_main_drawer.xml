@@ -13,8 +13,14 @@
             android:icon="@drawable/arrow_right_black"
             android:title="@string/menu_cameracapture" />
         <item
-            android:id="@+id/nav_fragment_service"
+            android:id="@+id/nav_elastic_search_with_ui"
             android:icon="@drawable/arrow_right_black"
-            android:title="@string/menu_locationservices" />
+            android:title="@string/menu_elastic_search_with_ui" />
+
+        <item
+            android:id="@+id/nav_elastic_search_without_ui"
+            android:icon="@drawable/arrow_right_black"
+            android:title="@string/menu_elastic_search_without_ui" />
+
     </group>
 </menu>

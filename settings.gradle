@@ -9,4 +9,4 @@ dependencyResolutionManagement {
 rootProject.name = "Demo Apps For SharedComponent"
 include ':app'
 include(':AppServiceComponents')
-project(":AppServiceComponents").projectDir = new File("D:/workspace/reusablecomponents/appservice/AppServiceComponents")
+project(":AppServiceComponents").projectDir = new File("C:/Users/gb64286/Desktop/AppServiceComponents")
