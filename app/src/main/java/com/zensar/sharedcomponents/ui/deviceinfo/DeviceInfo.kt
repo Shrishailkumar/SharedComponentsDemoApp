@@ -69,26 +69,29 @@ class DeviceInfo : Fragment() {
     }
 
     private fun updateUI(build: DeviceInfo) {
-        //deviceInfoViewModel.
-        /*mTvRam.setTextColor(mTvRam.text+deviceInfoViewModel.())
-        mTvBatteryPercentage.setTextColor(mTvBatteryPercentage.text+deviceInfoViewModel.getBateryPercentage())
-        mTvInstalledApps.setTextColor(mTvInstalledApps.text+deviceInfoViewModel.installedApps())*/
-        mTvDeviceData.setText( "SERIAL: " + build.serial + "\n" +
-                "MODEL: " + build.model + "\n" +
-                "ID: " + build.id + "\n" +
-                "Manufacture: " + build.manufacture + "\n" +
-                "Brand: " + build.brand + "\n" +
-                "Type: " + build.type + "\n" +
-                "User: " + build.user + "\n" +
-                "SDK:  " + build.sdk + "\n" +
-                "BOARD: " + build.board + "\n" +
-                "BRAND: " + build.brand + "\n" +
-                "HOST: " + build.host + "\n" +
-                "FINGERPRINT: "+build.fingerPrint + "\n" +
-                "Device: " + build.Device +"\n" +
-                "BootLoader: "+build.bootLoader + "\n" +
-                "Display: "+build.display + "\n" +
-                "Hardware: "+build.hardware + "\n" +
+        mTvRam.text = (mTvRam.text.toString() + deviceInfoViewModel.getRamDetails())
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            mTvBatteryPercentage.text = (mTvBatteryPercentage.text.toString()+deviceInfoViewModel.getBatteryInfo())
+        }else{
+            mTvBatteryPercentage.text = "Battery info not available for this Android OS."
+        }
+        mTvInstalledApps.text = (mTvInstalledApps.text.toString()+deviceInfoViewModel.getInstalledApps())
+        mTvDeviceData.setText( "Serial num: " + build.serial + "\n\n" +
+                "Model: " + build.model + "\n\n" +
+                "Id: " + build.id + "\n\n" +
+                "Manufacture: " + build.manufacture + "\n\n" +
+                "Brand: " + build.brand + "\n\n" +
+                "Type: " + build.type + "\n\n" +
+                "User: " + build.user + "\n\n" +
+                "Sdk:  " + build.sdk + "\n\n" +
+                "Board: " + build.board + "\n\n" +
+                "Brand name: " + build.brand + "\n\n" +
+                "Host: " + build.host + "\n\n" +
+                "Fingerprint: "+build.fingerPrint + "\n\n" +
+                "Device: " + build.Device +"\n\n" +
+                "BootLoader: "+build.bootLoader + "\n\n" +
+                "Display: "+build.display + "\n\n" +
+                "Hardware: "+build.hardware + "\n\n" +
                 "product: "+build.product  )
     }
 
