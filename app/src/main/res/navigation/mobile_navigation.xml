@@ -23,6 +23,12 @@
         android:label="@string/menu_locationservices"
         tools:layout="@layout/fragment_elasticsearch_services" />
     <fragment
+        android:id="@+id/nav_fragment_scanner"
+        android:name="com.zensar.sharedcomponents.ui.QRAndBarCodeScanner.ScannerFragment"
+        android:label="@string/menu_scanner"
+        tools:layout="@layout/fragment_scannerread" />
+
+    <fragment
         android:id="@+id/nav_fragment_encryption"
         android:name="com.zensar.sharedcomponents.ui.encryptionanddecryption.Encryptionanddecryption"
         android:label="@string/menu_encryptionanddecryption"
@@ -32,7 +38,7 @@
         android:id="@+id/nav_fragment_network"
         android:name="com.zensar.sharedcomponents.ui.network.fragment.NetworkFragment"
         android:label="@string/menu_network_services"
-        tools:layout="@layout/fragment_network" >
+        tools:layout="@layout/fragment_network">
         <action
             android:id="@+id/action_nav_fragment_network_to_nav_network_volley"
             app:destination="@id/nav_network_volley" />

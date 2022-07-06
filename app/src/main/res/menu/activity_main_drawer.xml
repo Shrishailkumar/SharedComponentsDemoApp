@@ -17,6 +17,10 @@
             android:icon="@drawable/arrow_blue"
             android:title="@string/menu_locationservices" />
         <item
+            android:id="@+id/nav_fragment_scanner"
+            android:icon="@drawable/arrow_blue"
+            android:title="@string/menu_scanner" />
+        <item
             android:id="@+id/nav_fragment_network"
             android:icon="@drawable/arrow_blue"
             android:title="@string/menu_network_services" />
