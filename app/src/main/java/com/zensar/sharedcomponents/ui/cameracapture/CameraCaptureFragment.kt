@@ -1,5 +1,6 @@
 package com.zensar.sharedcomponents.ui.cameracapture
 
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -37,7 +38,7 @@ class CameraCaptureFragment : Fragment() {
         cameraBtn = binding.startCamera
         imageView = binding.showImage
         cameraBtn.setOnClickListener(){
-            val cameraFragment: Fragment? = CameraComponent().initCameraPreview(CameraMode.PHOTO,true, object :
+           /* val cameraFragment: Fragment? = CameraComponent().initCameraPreview(CameraMode.PHOTO,true, object :
                 OnImageCaptureCallback {
                 override fun onError(message: String) {
                    val string = message
@@ -55,7 +56,12 @@ class CameraCaptureFragment : Fragment() {
                 )
             }
             fragmentTransaction.addToBackStack(CameraCaptureFragment::class.qualifiedName)
-            fragmentTransaction.commit()
+            fragmentTransaction.commit()*/
+
+            val intent = Intent(requireActivity(), CamaraActivity::class.java)
+            startActivity(intent)
+
+
 
         }
         return root
