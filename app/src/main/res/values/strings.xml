@@ -20,5 +20,13 @@
     <string name="retrofit">Retrofit</string>
     <string name="volley">Volley</string>
     <string name="menu_ui_component">UI Component</string>
+        <string-array name="algorithm_list">
+            <item>Select Algorithm</item>
+            <item>SHA 256</item>
+            <item>Base 64</item>
+            <item>MD5 Digest</item>
+          <!--  <item>aes algorithm</item>-->
+        </string-array>
+
 
 </resources>
