@@ -6,11 +6,11 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_deviceinfo"
-            android:icon="@drawable/arrow_blue"
+            android:icon="@mipmap/arrow_icon_right"
             android:title="@string/menu_deviceinfo" />
         <item
             android:id="@+id/nav_camera_capture"
-            android:icon="@drawable/arrow_blue"
+            android:icon="@mipmap/arrow_icon_right"
             android:title="@string/menu_cameracapture" />
         <!--<item
             android:id="@+id/nav_fragment_service"
@@ -18,21 +18,21 @@
             android:title="@string/menu_locationservices" />-->
         <item
             android:id="@+id/nav_fragment_scanner"
-            android:icon="@drawable/arrow_blue"
+            android:icon="@mipmap/arrow_icon_right"
             android:title="@string/menu_scanner" />
         <item
             android:id="@+id/nav_fragment_network"
-            android:icon="@drawable/arrow_blue"
+            android:icon="@mipmap/arrow_icon_right"
             android:title="@string/menu_network_services" />
 
         <item
             android:id="@+id/nav_fragment_component_ui"
-            android:icon="@drawable/arrow_right_black"
+            android:icon="@mipmap/arrow_icon_right"
             android:title="@string/menu_ui_component" />
             android:title="@string/menu_network_services" />
         <item
             android:id="@+id/nav_fragment_encryption"
-            android:icon="@drawable/arrow_right_black"
+            android:icon="@mipmap/arrow_icon_right"
             android:title="@string/menu_encryptionanddecryption" />
     </group>
 </menu>

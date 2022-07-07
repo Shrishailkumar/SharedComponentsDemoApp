@@ -43,6 +43,7 @@ class MainActivity : AppCompatActivity() {
                  R.id.nav_fragment_component_ui
             ), drawerLayout
         )
+        navView.setItemIconTintList(null)
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
