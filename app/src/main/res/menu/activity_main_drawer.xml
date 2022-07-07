@@ -12,10 +12,10 @@
             android:id="@+id/nav_camera_capture"
             android:icon="@drawable/arrow_blue"
             android:title="@string/menu_cameracapture" />
-        <item
+        <!--<item
             android:id="@+id/nav_fragment_service"
             android:icon="@drawable/arrow_blue"
-            android:title="@string/menu_locationservices" />
+            android:title="@string/menu_locationservices" />-->
         <item
             android:id="@+id/nav_fragment_scanner"
             android:icon="@drawable/arrow_blue"
