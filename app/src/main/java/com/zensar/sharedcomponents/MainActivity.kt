@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.nav_deviceinfo, R.id.nav_camera_capture, R.id.nav_fragment_scanner,R.id.nav_fragment_encryption,
-                 R.id.nav_fragment_component_ui
+                 R.id.nav_fragment_component_ui, R.id.nav_compass
             ), drawerLayout
         )
         navView.setItemIconTintList(null)

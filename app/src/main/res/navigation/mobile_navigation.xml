@@ -36,6 +36,12 @@
         tools:layout="@layout/fragment_encryptionanddecryption" />
 
     <fragment
+        android:id="@+id/nav_compass"
+        android:name="com.zensar.sharedcomponents.ui.compass.CompassDemoFragment"
+        android:label="@string/menu_compass"
+        tools:layout="@layout/compass_fragment" />
+
+    <fragment
         android:id="@+id/nav_fragment_network"
         android:name="com.zensar.sharedcomponents.ui.network.fragment.NetworkFragment"
         android:label="@string/menu_network_services"

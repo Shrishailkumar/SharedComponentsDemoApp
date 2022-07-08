@@ -13,6 +13,7 @@
     <string name="menu_scanner">Scanner</string>
     <string name="menu_encryptionanddecryption">Encryption and Decryption</string>
     <string name="menu_network_services">Network Services</string>
+    <string name="menu_compass">Compass</string>
     <string name="conccetivity_lost_text">No network to connect!</string>
     <string name="loading_mgs">Wait data Loading ...</string>
     <!-- TODO: Remove or change this placeholder text -->
