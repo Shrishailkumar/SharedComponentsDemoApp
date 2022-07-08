@@ -64,7 +64,16 @@
         android:id="@+id/nav_fragment_component_ui"
         android:name="com.zensar.sharedcomponents.ui.uicomponent.UIComponentFragment"
         android:label="@string/menu_ui_component"
-        tools:layout="@layout/fragment_ui_component" />
+        tools:layout="@layout/fragment_ui_component" >
+        <action
+            android:id="@+id/action_nav_fragment_component_ui_to_recyclerviewFragment"
+            app:destination="@id/recyclerviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/recyclerviewFragment"
+        android:name="com.zensar.sharedcomponents.ui.uicomponent.RecyclerviewFragment"
+        android:label="fragment_recyclerview"
+        tools:layout="@layout/fragment_recyclerview" />
 
 
 </navigation>

@@ -10,14 +10,17 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.android.appcomponents.customui.alertdialog.*
 import com.android.appcomponents.customui.progress.UIProgressDialog
+import com.android.appcomponents.customui.recyclerview.setRecyclerViewItems
 import com.android.appcomponents.customui.snackbar.UISnackBar
 import com.android.appcomponents.customui.toast.UIToast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.zensar.sharedcomponents.R
 import com.zensar.sharedcomponents.databinding.FragmentUiComponentBinding
+import com.zensar.sharedcomponents.ui.uicomponent.entiry.SampleData
 
 class UIComponentFragment : Fragment() {
 
@@ -50,12 +53,19 @@ class UIComponentFragment : Fragment() {
         binding.showAd.setOnClickListener {
             showAlertDialog()
         }
+        binding.showRv.setOnClickListener {
+            showRecyclerView()
+        }
         binding.showToast.setOnClickListener {
             showToast()
         }
         binding.showProgressDialog.setOnClickListener {
             showProgressDialog()
         }
+    }
+
+    private fun showRecyclerView() {
+        findNavController().navigate(R.id.action_nav_fragment_component_ui_to_recyclerviewFragment)
     }
 
     private fun initSnackBar() {
@@ -71,19 +81,19 @@ class UIComponentFragment : Fragment() {
     }
 
     private fun showAlertDialog() {
-        /*UIAlertDialog.build(context as Activity)
+        UIAlertDialog.build(context as Activity)
             .title("Alert Dialog Title")
             .body("Alert Dialog Body")
             .position(UIAlertDialog.POSITIONS.CENTER)
-            .onNegative("Cancel") {
+            /*.onNegative("Cancel") {
                 Log.d("TAG", "Negative Clicked ")
-            }
-            .icon(R.drawable.custom_icon_tick)
-            .onPositive("OK") {
-                Log.d("TAG", "Positive Clicked")
             }*/
+            .icon(R.drawable.custom_icon_tick)
+            .onPositive("OK"){
+                Log.d("TAG", "Positive Clicked")
+            }
 
-        UIAlertDialog.build(context as Activity)
+        /*UIAlertDialog.build(context as Activity)
             .title(
                 "Alert Dialog Title",
                 titleColor = ContextCompat.getColor(context as Activity, android.R.color.white)
@@ -106,7 +116,7 @@ class UIComponentFragment : Fragment() {
                 textColor = ContextCompat.getColor(context as Activity, android.R.color.black)
             ) {
                 Log.d("TAG", "negative ")
-            }
+            }*/
     }
 
     private fun showProgressDialog() {
@@ -122,12 +132,12 @@ class UIComponentFragment : Fragment() {
     }
 
     private fun showToast() {
-        UIToast.showToast(context as Activity, "Toast",
-            Toast.LENGTH_LONG).show()
-        /*UIToast.showToast(
+        /*UIToast.showToast(context as Activity, "Toast",
+            Toast.LENGTH_LONG).show()*/
+        UIToast.showToast(
             context as Activity, "Test Toast",
             Toast.LENGTH_LONG, R.drawable.custom_icon_tick, R.color.white, R.color.black
-        ).show()*/
+        ).show()
 
         /*UIToast.showToastPosition(context as Activity, "Center Toast",
             Toast.LENGTH_LONG, Gravity.CENTER).show()*/
