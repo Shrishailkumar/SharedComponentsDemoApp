@@ -25,7 +25,7 @@
             <item>SHA 256</item>
             <item>Base 64</item>
             <item>MD5 Digest</item>
-          <!--  <item>aes algorithm</item>-->
+          <item>aes algorithm</item>
         </string-array>
 
 

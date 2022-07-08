@@ -17,23 +17,22 @@ import com.zensar.sharedcomponents.databinding.FragmentEncryptionanddecryptionBi
 import java.security.SecureRandom
 import javax.crypto.KeyGenerator
 import javax.crypto.SecretKey
-import javax.crypto.spec.IvParameterSpec
 
 
 class Encryptionanddecryption : Fragment() {
 
     private var _binding: FragmentEncryptionanddecryptionBinding? = null
 
-    private lateinit var mEncryptedText : TextView
-    private lateinit var mInputText : EditText
+    private lateinit var mEncryptedText: TextView
+    private lateinit var mInputText: EditText
     private lateinit var mEncryptBtn: Button
     private lateinit var mDecryptBnt: Button
-    private lateinit var mAlgorithmSpinner :Spinner
+    private lateinit var mAlgorithmSpinner: Spinner
 
-    private  var selectedPosition : Int = 0;
+    private var selectedPosition: Int = 0
 
 
-    private lateinit var encryptionViewModal:  EncryptionViewModal
+    private lateinit var encryptionViewModal: EncryptionViewModal
     private val binding get() = _binding!!
     var secreteKey: SecretKey = generateSecreteKey(256)
     var IV: ByteArray = generateIv()
@@ -44,7 +43,7 @@ class Encryptionanddecryption : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-       _binding = FragmentEncryptionanddecryptionBinding.inflate(inflater,container,false)
+        _binding = FragmentEncryptionanddecryptionBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         mEncryptedText = binding.encryptedData
@@ -54,20 +53,26 @@ class Encryptionanddecryption : Fragment() {
         encryptionViewModal = ViewModelProvider(this).get(EncryptionViewModal::class.java)
         mAlgorithmSpinner = binding.algorithmSpinner
 
-        var algorithmList:Array<String> = requireActivity().resources.getStringArray(R.array.algorithm_list)
+        var algorithmList: Array<String> =
+            requireActivity().resources.getStringArray(R.array.algorithm_list)
 
         if (mAlgorithmSpinner != null) {
-            val adapter = ArrayAdapter(requireActivity(),android.R.layout.simple_spinner_item, algorithmList)
+            val adapter =
+                ArrayAdapter(requireActivity(), android.R.layout.simple_spinner_item, algorithmList)
             mAlgorithmSpinner.adapter = adapter
 
             mAlgorithmSpinner.onItemSelectedListener = object :
                 AdapterView.OnItemSelectedListener {
-                override fun onItemSelected(parent: AdapterView<*>,view: View, position: Int, id: Long)
-                {
-                    if(selectedPosition!=position){
+                override fun onItemSelected(
+                    parent: AdapterView<*>,
+                    view: View,
+                    position: Int,
+                    id: Long
+                ) {
+                    if (selectedPosition != position) {
                         selectedPosition = position
                         mInputText.setText("")
-                        mEncryptedText.setText("")
+                        mEncryptedText.text = ""
                     }
                     when (selectedPosition) {
                         1 -> mDecryptBnt.visibility = View.GONE
@@ -76,39 +81,48 @@ class Encryptionanddecryption : Fragment() {
                         3 -> mDecryptBnt.visibility = View.GONE
                     }
                 }
+
                 override fun onNothingSelected(parent: AdapterView<*>) {
                     // write code to perform some action
                 }
             }
         }
-        mEncryptBtn.setOnClickListener(){
+        mEncryptBtn.setOnClickListener {
             processEncryptAlgorithm()
         }
-        mDecryptBnt.setOnClickListener(){
+        mDecryptBnt.setOnClickListener {
             processDecryptAlgorithm()
 
         }
-
         return root
     }
+
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun processEncryptAlgorithm(){
+    private fun processEncryptAlgorithm() {
         when (selectedPosition) {
 
-            1 -> {SHA256Algorithm()
-                 mDecryptBnt.visibility = View.GONE
+            1 -> {
+                SHA256Algorithm()
+                mDecryptBnt.visibility = View.GONE
             }
-            2 -> {base64EncryptionAlgorithm()
-                mDecryptBnt.visibility = View.VISIBLE}
-            3 -> {md5Digest()
-                mDecryptBnt.visibility = View.GONE}
-            4 -> {aesEncryptAlgorithm()
-                mDecryptBnt.visibility = View.VISIBLE}
+            2 -> {
+                base64EncryptionAlgorithm()
+                mDecryptBnt.visibility = View.VISIBLE
+            }
+            3 -> {
+                md5Digest()
+                mDecryptBnt.visibility = View.GONE
+            }
+            4 -> {
+                aesEncryptAlgorithm()
+                mDecryptBnt.visibility = View.VISIBLE
+            }
         }
 
     }
+
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun processDecryptAlgorithm(){
+    private fun processDecryptAlgorithm() {
         when (selectedPosition) {
 
             2 -> base64DecryptionAlgorithm()
@@ -120,7 +134,7 @@ class Encryptionanddecryption : Fragment() {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun base64EncryptionAlgorithm(){
+    private fun base64EncryptionAlgorithm() {
         activity?.let {
             val input: String = mInputText.text.toString()
             context?.let { it1 ->
@@ -133,51 +147,54 @@ class Encryptionanddecryption : Fragment() {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun base64DecryptionAlgorithm(){
+    private fun base64DecryptionAlgorithm() {
         activity?.let {
             val input: String = mEncryptedText.text.toString()
             context?.let { it1 ->
                 encryptionViewModal.toBase64Dncode(input)
-                    ?.observe(it, Observer<EncryptionData?> {
+                    .observe(it, Observer<EncryptionData?> {
                         updateUI(it)
                     })
             }
         }
     }
 
-    private fun aesEncryptAlgorithm(){
+    private fun aesEncryptAlgorithm() {
         activity?.let {
-            val input: ByteArray = mEncryptedText.text.toString().toByteArray()
+            val input: String = mInputText.text.toString()
             context?.let { it1 ->
-                encryptionViewModal.aesEncryptAlgorithm(input, secreteKey!!,IV)
-                    ?.observe(it, Observer<EncryptionData?> {
-                        updateUI(it)
-                    })
+                encryptionViewModal.aesEncryptAlgorithm("123456", input)
             }
         }
+        encryptionViewModal.encryptedResponse.observe(viewLifecycleOwner, {
+            updateUI(EncryptionData(it))
+            println("encrpted Data: $it")
+        })
+
 
     }
 
-    private fun SHA256Algorithm(){
+    private fun SHA256Algorithm() {
 
         activity?.let {
             val input: String = mEncryptedText.text.toString()
             context?.let { it1 ->
-                encryptionViewModal.hMacSha256Algoritham(secreteKey.toString(),input)
-                    ?.observe(it, Observer<EncryptionData?> {
+                encryptionViewModal.hMacSha256Algoritham(secreteKey.toString(), input)
+                    .observe(it, Observer<EncryptionData?> {
                         updateUI(it)
                     })
             }
         }
 
     }
-    private fun md5Digest(){
+
+    private fun md5Digest() {
 
         activity?.let {
             val input: String = mEncryptedText.text.toString()
             context?.let { it1 ->
                 encryptionViewModal.md5Digest(input)
-                    ?.observe(it, Observer<EncryptionData?> {
+                    .observe(it, Observer<EncryptionData?> {
                         updateUI(it)
                     })
             }
@@ -187,31 +204,27 @@ class Encryptionanddecryption : Fragment() {
 
 
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun aesDecryptAlgorithm(){
-        activity?.let {
-            val input: String = mEncryptedText.text.toString()
-            context?.let { it1 ->
-                encryptionViewModal.aesDecryptionAlgorithm(input.toByteArray(),secreteKey,IV)
-                    ?.observe(it, Observer<EncryptionData?> {
-                        updateUI(it)
-                    })
-            }
+    private fun aesDecryptAlgorithm() {
+        val input: String = mEncryptedText.text.toString()
+        context?.let { it1 ->
+            encryptionViewModal.aesDecryptionAlgorithm("123456", input)
+
         }
+        encryptionViewModal.decryptedResponse.observe(viewLifecycleOwner,
+            { updateUI(EncryptionData(it)) })
     }
-
-
-
 
 
     private fun updateUI(encryptionData: EncryptionData) {
-        mEncryptedText.setText( encryptionData.encryptAndDecryptData)
+        mEncryptedText.text = encryptionData.encryptAndDecryptData
     }
 
-    private fun generateSecreteKey(keySize:Int) : SecretKey {
+    private fun generateSecreteKey(keySize: Int): SecretKey {
         val keyGen: KeyGenerator = KeyGenerator.getInstance("AES")
         keyGen.init(keySize)
         return keyGen.generateKey()
     }
+
     fun generateIv(): ByteArray {
         val iv = ByteArray(16)
         SecureRandom().nextBytes(iv)
