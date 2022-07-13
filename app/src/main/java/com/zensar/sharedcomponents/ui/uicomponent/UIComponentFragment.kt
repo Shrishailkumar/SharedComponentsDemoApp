@@ -1,26 +1,29 @@
 package com.zensar.sharedcomponents.ui.uicomponent
 
 import android.app.Activity
+import android.app.Dialog
 import android.graphics.Typeface
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.Window
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.android.appcomponents.customui.alertdialog.*
+import com.android.appcomponents.customui.datepicker.UICalendarListener
+import com.android.appcomponents.customui.datepicker.UICalendarView
 import com.android.appcomponents.customui.progress.UIProgressDialog
-import com.android.appcomponents.customui.recyclerview.setRecyclerViewItems
 import com.android.appcomponents.customui.snackbar.UISnackBar
 import com.android.appcomponents.customui.toast.UIToast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import com.zensar.sharedcomponents.R
 import com.zensar.sharedcomponents.databinding.FragmentUiComponentBinding
-import com.zensar.sharedcomponents.ui.uicomponent.entiry.SampleData
+import java.text.SimpleDateFormat
+import java.util.*
 
 class UIComponentFragment : Fragment() {
 
@@ -62,6 +65,70 @@ class UIComponentFragment : Fragment() {
         binding.showProgressDialog.setOnClickListener {
             showProgressDialog()
         }
+        binding.showCalendar.setOnClickListener {
+            showCalendar()
+        }
+    }
+
+    private fun showCalendar() {
+        val dialog = Dialog(activity as Activity)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(true)
+        dialog.setContentView(R.layout.ui_calendar)
+
+        val currentCalendar = Calendar.getInstance(Locale.getDefault())
+        val calendarView = dialog.findViewById<UICalendarView>(R.id.calendarView)
+        
+        calendarView.apply {
+            //Show monday as first date of week
+            initDayOfWeek = Calendar.MONDAY
+
+            //Show/hide overflow days of a month
+            isOverflowDateVisible = false
+
+            calendarBackgroundColor =
+                (ContextCompat.getColor(activity as Activity, R.color.white))
+
+            calendarHeaderBackgroundColor =
+                (ContextCompat.getColor(activity as Activity, android.R.color.holo_purple))
+            calendarTitleTextColor = (ContextCompat.getColor(activity as Activity, R.color.black))
+            weekLayoutBackgroundColor =
+                (ContextCompat.getColor(activity as Activity, R.color.white))
+            dayOfWeekTextColor = (ContextCompat.getColor(activity as Activity, R.color.black))
+            dayOfMonthTextColor = (ContextCompat.getColor(activity as Activity, R.color.black))
+            disabledDayBackgroundColor =
+                (ContextCompat.getColor(activity as Activity, R.color.disabled_grey_light))
+            disabledDayTextColor =
+                (ContextCompat.getColor(activity as Activity, R.color.day_disabled_text_color))
+            selectedDayBackground =
+                (ContextCompat.getColor(activity as Activity, android.R.color.holo_green_dark))
+            selectedDayTextColor = (ContextCompat.getColor(activity as Activity, R.color.white))
+            currentDayOfMonth =
+                (ContextCompat.getColor(activity as Activity, R.color.sky_blue))
+
+            //call refreshCalendar to update calendar the view
+            refreshCalendar(currentCalendar)
+        }.setUICalendarListener(object : UICalendarListener {
+
+            override fun onDateSelected(date: Date) {
+                val df = SimpleDateFormat("dd-MM-yyyy")
+                Toast.makeText(activity as Activity, df.format(date), Toast.LENGTH_SHORT)
+                    .show()
+            }
+
+            override fun onLongClick(date: Date) {
+                val df = SimpleDateFormat("dd-MM-yyyy")
+                Toast.makeText(activity as Activity, df.format(date), Toast.LENGTH_SHORT)
+                    .show()
+            }
+
+            override fun onMonthChanged(date: Date) {
+                val df = SimpleDateFormat("MM-yyyy")
+                Toast.makeText(activity as Activity, df.format(date), Toast.LENGTH_SHORT)
+                    .show()
+            }
+        })
+        dialog.show()
     }
 
     private fun showRecyclerView() {
@@ -81,17 +148,17 @@ class UIComponentFragment : Fragment() {
     }
 
     private fun showAlertDialog() {
-        UIAlertDialog.build(context as Activity)
+        /*UIAlertDialog.build(context as Activity)
             .title("Alert Dialog Title")
             .body("Alert Dialog Body")
             .position(UIAlertDialog.POSITIONS.CENTER)
-            /*.onNegative("Cancel") {
+            *//*.onNegative("Cancel") {
                 Log.d("TAG", "Negative Clicked ")
-            }*/
+            }*//*
             .icon(R.drawable.custom_icon_tick)
             .onPositive("OK"){
                 Log.d("TAG", "Positive Clicked")
-            }
+            }*/
 
         /*UIAlertDialog.build(context as Activity)
             .title(
