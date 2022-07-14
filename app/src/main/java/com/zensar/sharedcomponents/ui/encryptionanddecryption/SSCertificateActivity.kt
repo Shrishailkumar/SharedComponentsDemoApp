@@ -88,7 +88,7 @@ class SSCertificateActivity : AppCompatActivity() {
         }
     }*/
 
-    fun sendOkHttpPinned() {
+    fun sendOkHttpPinned(view: View) {
         GlobalScope.launch(Dispatchers.IO) {
             onStart(R.id.okhttp_pinned)
 
@@ -115,7 +115,7 @@ class SSCertificateActivity : AppCompatActivity() {
         }
     }
 
-    fun sendVolleyPinned() {
+    fun sendVolleyPinned(view: View) {
         onStart(R.id.volley_pinned)
 
         try {
@@ -148,7 +148,7 @@ class SSCertificateActivity : AppCompatActivity() {
         }
     }
 
-    fun sendManuallyCustomPinned() {
+    fun sendManuallyCustomPinned(view: View) {
         GlobalScope.launch(Dispatchers.IO) {
             onStart(R.id.manually_pinned)
             try {
