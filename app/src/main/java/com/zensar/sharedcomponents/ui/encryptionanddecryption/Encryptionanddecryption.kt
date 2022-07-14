@@ -1,5 +1,6 @@
 package com.zensar.sharedcomponents.ui.encryptionanddecryption
 
+import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,9 +12,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.android.appcomponents.model.EncryptionData
+import com.android.appcomponents.util.SSLCertificate
 import com.android.appcomponents.viewmodel.EncryptionViewModal
 import com.zensar.sharedcomponents.R
 import com.zensar.sharedcomponents.databinding.FragmentEncryptionanddecryptionBinding
+import com.zensar.sharedcomponents.ui.cameracapture.CamaraActivity
 import java.security.SecureRandom
 import javax.crypto.KeyGenerator
 import javax.crypto.SecretKey
@@ -28,6 +31,7 @@ class Encryptionanddecryption : Fragment() {
     private lateinit var mEncryptBtn: Button
     private lateinit var mDecryptBnt: Button
     private lateinit var mAlgorithmSpinner: Spinner
+    private lateinit var sslCerificateBtn : Button
 
     private var selectedPosition: Int = 0
 
@@ -52,6 +56,7 @@ class Encryptionanddecryption : Fragment() {
         mDecryptBnt = binding.decryptBtn
         encryptionViewModal = ViewModelProvider(this).get(EncryptionViewModal::class.java)
         mAlgorithmSpinner = binding.algorithmSpinner
+        sslCerificateBtn = binding.sslCertificate
 
         var algorithmList: Array<String> =
             requireActivity().resources.getStringArray(R.array.algorithm_list)
@@ -93,6 +98,10 @@ class Encryptionanddecryption : Fragment() {
         mDecryptBnt.setOnClickListener {
             processDecryptAlgorithm()
 
+        }
+        sslCerificateBtn.setOnClickListener(){
+            val intent = Intent(requireActivity(), SSCertificateActivity::class.java)
+            startActivity(intent)
         }
         return root
     }

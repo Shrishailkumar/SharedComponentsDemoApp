@@ -77,7 +77,23 @@
             android:text="Decryption"
             android:elevation="8dp"
             />
+        <Button
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:id="@+id/ssl_certificate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:text="Redirect to SSL Certificate"
+            android:textColorHighlight="@color/white"
+            android:elevation="8dp"
+            />
 
     </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

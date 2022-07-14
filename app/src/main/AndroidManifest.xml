@@ -18,6 +18,9 @@
             android:name="com.zensar.sharedcomponents.ui.cameracapture.CamaraActivity"
             android:exported="false" />
         <activity
+            android:name="com.zensar.sharedcomponents.ui.encryptionanddecryption.SSCertificateActivity"
+            android:exported="false" />
+        <activity
             android:name=".SplashScreenActivity"
             android:exported="true"
             android:theme="@style/SplashTheme">
