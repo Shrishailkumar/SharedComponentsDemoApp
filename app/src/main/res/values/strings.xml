@@ -16,7 +16,7 @@
     <string name="menu_compass">Compass User Interface</string>
     <string name="menu_ui_component">UI Utility Component</string>
     <string name="conccetivity_lost_text">No network to connect!</string>
-    <string name="loading_mgs">Wait data Loading ...</string>
+    <string name="loading_mgs">Wait data Loading …</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="retrofit">Retrofit</string>
