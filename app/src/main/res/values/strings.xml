@@ -11,7 +11,7 @@
     <string name="menu_cameracapture">Camera Capture</string>
     <string name="menu_locationservices">Elastic Search</string>
     <string name="menu_scanner">Scanner</string>
-    <string name="menu_encryptionanddecryption">Encryption and Decryption</string>
+    <string name="menu_encryptionanddecryption">Data Security Services</string>
     <string name="menu_network_services">Network Services</string>
     <string name="menu_compass">Compass</string>
     <string name="conccetivity_lost_text">No network to connect!</string>
@@ -27,6 +27,7 @@
             <item>Base 64</item>
             <item>MD5 Digest</item>
           <item>aes algorithm</item>
+            <item>RSA algorithm</item>
         </string-array>
 
 

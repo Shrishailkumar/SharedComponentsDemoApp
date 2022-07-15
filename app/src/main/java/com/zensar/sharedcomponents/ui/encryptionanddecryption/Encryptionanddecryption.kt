@@ -15,7 +15,8 @@ import com.android.appcomponents.model.EncryptionData
 import com.android.appcomponents.viewmodel.EncryptionViewModal
 import com.zensar.sharedcomponents.R
 import com.zensar.sharedcomponents.databinding.FragmentEncryptionanddecryptionBinding
-import com.zensar.sharedcomponents.ui.cameracapture.CamaraActivity
+import java.security.KeyPair
+import java.security.KeyPairGenerator
 import java.security.SecureRandom
 import javax.crypto.KeyGenerator
 import javax.crypto.SecretKey
@@ -33,6 +34,7 @@ class Encryptionanddecryption : Fragment() {
     private lateinit var sslCerificateBtn : Button
 
     private var selectedPosition: Int = 0
+    lateinit var rsaKey: KeyPair
 
 
     private lateinit var encryptionViewModal: EncryptionViewModal
@@ -56,7 +58,7 @@ class Encryptionanddecryption : Fragment() {
         encryptionViewModal = ViewModelProvider(this).get(EncryptionViewModal::class.java)
         mAlgorithmSpinner = binding.algorithmSpinner
         sslCerificateBtn = binding.sslCertificate
-
+        generateRSASecreteKey()
         var algorithmList: Array<String> =
             requireActivity().resources.getStringArray(R.array.algorithm_list)
 
@@ -83,6 +85,8 @@ class Encryptionanddecryption : Fragment() {
 
                         2 -> mDecryptBnt.visibility = View.VISIBLE
                         3 -> mDecryptBnt.visibility = View.GONE
+                        4 -> mDecryptBnt.visibility = View.VISIBLE
+                        5 -> mDecryptBnt.visibility = View.VISIBLE
                     }
                 }
 
@@ -111,19 +115,18 @@ class Encryptionanddecryption : Fragment() {
 
             1 -> {
                 SHA256Algorithm()
-                mDecryptBnt.visibility = View.GONE
             }
             2 -> {
                 base64EncryptionAlgorithm()
-                mDecryptBnt.visibility = View.VISIBLE
             }
             3 -> {
                 md5Digest()
-                mDecryptBnt.visibility = View.GONE
             }
             4 -> {
                 aesEncryptAlgorithm()
-                mDecryptBnt.visibility = View.VISIBLE
+            }
+            5 -> {
+                rsaEncryptAlgorithm()
             }
         }
 
@@ -135,6 +138,7 @@ class Encryptionanddecryption : Fragment() {
 
             2 -> base64DecryptionAlgorithm()
             4 -> aesDecryptAlgorithm()
+            5 -> rsaDecryptAlgorithm()
 
 
         }
@@ -175,6 +179,35 @@ class Encryptionanddecryption : Fragment() {
             }
         }
         encryptionViewModal.encryptedResponse.observe(viewLifecycleOwner, {
+            updateUI(EncryptionData(it))
+            println("encrpted Data: $it")
+        })
+
+
+    }
+
+    private fun rsaEncryptAlgorithm() {
+        activity?.let {
+            val input: String = mInputText.text.toString()
+            context?.let { it1 ->
+                encryptionViewModal.rsaEncryptAlgorithm(input, rsaKey.public)
+            }
+        }
+        encryptionViewModal.rsaEncryptResponse.observe(viewLifecycleOwner, {
+            updateUI(EncryptionData(it))
+            println("encrpted Data: $it")
+        })
+
+
+    }
+    private fun rsaDecryptAlgorithm() {
+        activity?.let {
+            val input: String = mEncryptedText.text.toString()
+            context?.let { it1 ->
+                encryptionViewModal.rsaDecryptAlgorithm(input, rsaKey.private)
+            }
+        }
+        encryptionViewModal.rsaDecryptResponse.observe(viewLifecycleOwner, {
             updateUI(EncryptionData(it))
             println("encrpted Data: $it")
         })
@@ -237,6 +270,11 @@ class Encryptionanddecryption : Fragment() {
         val iv = ByteArray(16)
         SecureRandom().nextBytes(iv)
         return iv
+    }
+    private fun generateRSASecreteKey(){
+        val kpg = KeyPairGenerator.getInstance("RSA");
+        kpg.initialize(1024);
+        rsaKey = kpg.genKeyPair();
     }
 
 }
