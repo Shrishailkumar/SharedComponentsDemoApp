@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.android.appcomponents.model.EncryptionData
-import com.android.appcomponents.util.SSLCertificate
 import com.android.appcomponents.viewmodel.EncryptionViewModal
 import com.zensar.sharedcomponents.R
 import com.zensar.sharedcomponents.databinding.FragmentEncryptionanddecryptionBinding
