@@ -28,8 +28,7 @@
         <item
             android:id="@+id/nav_fragment_component_ui"
             android:icon="@mipmap/arrow_icon_right"
-            android:title="@string/menu_ui_component" />
-            android:title="@string/menu_network_services" />
+            android:title="@string/menu_ui_component" /> />
         <item
             android:id="@+id/nav_fragment_encryption"
             android:icon="@mipmap/arrow_icon_right"
