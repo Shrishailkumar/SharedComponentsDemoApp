@@ -47,7 +47,7 @@ class ScannerFragment : Fragment() {
         scannerViewModel = ViewModelProvider(this).get(ScannerViewModel::class.java)
         activity?.let {
             scannerViewModel.getDeviceData()
-                .observe(it, Observer<DeviceInfo?> {
+                .observe(it, Observer<String?> {
 
                 })
         }
