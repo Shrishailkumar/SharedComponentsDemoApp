@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.Dialog
 import android.graphics.Typeface
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,8 +16,9 @@ import androidx.navigation.fragment.findNavController
 import com.android.appcomponents.customui.alertdialog.*
 import com.android.appcomponents.customui.datepicker.UICalendarListener
 import com.android.appcomponents.customui.datepicker.UICalendarView
-import com.android.appcomponents.customui.progress.UIProgressDialog
+import com.android.appcomponents.customui.progress.UIProgressBar
 import com.android.appcomponents.customui.snackbar.UISnackBar
+import com.android.appcomponents.customui.timepicker.UITimePicker
 import com.android.appcomponents.customui.toast.UIToast
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
@@ -68,6 +70,14 @@ class UIComponentFragment : Fragment() {
         binding.showCalendar.setOnClickListener {
             showCalendar()
         }
+        binding.showTime.setOnClickListener {
+            showTime()
+        }
+    }
+
+    private fun showTime() {
+        val uiTimePicker = UITimePicker().materialTimeBuilder().build()
+        uiTimePicker.show(parentFragmentManager, "UIComponentFragment")
     }
 
     private fun showCalendar() {
@@ -78,7 +88,7 @@ class UIComponentFragment : Fragment() {
 
         val currentCalendar = Calendar.getInstance(Locale.getDefault())
         val calendarView = dialog.findViewById<UICalendarView>(R.id.calendarView)
-        
+
         calendarView.apply {
             //Show monday as first date of week
             initDayOfWeek = Calendar.MONDAY
@@ -111,19 +121,19 @@ class UIComponentFragment : Fragment() {
         }.setUICalendarListener(object : UICalendarListener {
 
             override fun onDateSelected(date: Date) {
-                val df = SimpleDateFormat("dd-MM-yyyy")
+                val df = SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH)
                 Toast.makeText(activity as Activity, df.format(date), Toast.LENGTH_SHORT)
                     .show()
             }
 
             override fun onLongClick(date: Date) {
-                val df = SimpleDateFormat("dd-MM-yyyy")
+                val df = SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH)
                 Toast.makeText(activity as Activity, df.format(date), Toast.LENGTH_SHORT)
                     .show()
             }
 
             override fun onMonthChanged(date: Date) {
-                val df = SimpleDateFormat("MM-yyyy")
+                val df = SimpleDateFormat("MM-yyyy", Locale.ENGLISH)
                 Toast.makeText(activity as Activity, df.format(date), Toast.LENGTH_SHORT)
                     .show()
             }
@@ -152,14 +162,24 @@ class UIComponentFragment : Fragment() {
             .title("Alert Dialog Title")
             .body("Alert Dialog Body")
             .position(UIAlertDialog.POSITIONS.CENTER)
-            *//*.onNegative("Cancel") {
+            .onNegative("Cancel") {
                 Log.d("TAG", "Negative Clicked ")
-            }*//*
+            }
             .icon(R.drawable.custom_icon_tick)
             .onPositive("OK"){
                 Log.d("TAG", "Positive Clicked")
             }*/
-
+        UIAlertDialog.build(context as Activity)
+            .title("Alert Dialog Title")
+            .body("Alert Dialog Body")
+            .position(UIAlertDialog.POSITIONS.CENTER)
+            /*.onNegative("Cancel") {
+                Log.d("TAG", "Negative Clicked ")
+            }*/
+            .icon(R.drawable.custom_icon_tick)
+            .onPositive("OK") {
+                Log.d("TAG", "Positive Clicked")
+            }
         /*UIAlertDialog.build(context as Activity)
             .title(
                 "Alert Dialog Title",
@@ -187,15 +207,10 @@ class UIComponentFragment : Fragment() {
     }
 
     private fun showProgressDialog() {
-        UIProgressDialog(context as Activity).apply {
-            isCancellable = true
-            progressBarColor = R.color.purple_500
-            progressMessageText = "Loading.."
-            canShowMessage = true
-            tcProgressMessage = R.color.white
-            tsProgressMessage = 20F
-            showProgressBar()
-        }
+        UIProgressBar.showProgressBar(
+            context as Activity, "Loading..",
+            ContextCompat.getColor(context as Activity, R.color.purple_200), true
+        )
     }
 
     private fun showToast() {
@@ -209,16 +224,16 @@ class UIComponentFragment : Fragment() {
         /*UIToast.showToastPosition(context as Activity, "Center Toast",
             Toast.LENGTH_LONG, Gravity.CENTER).show()*/
 
-       /* UIToast.showToast(
-            context as Activity, "Test Toast",
-            Toast.LENGTH_LONG, R.drawable.custom_icon_tick, R.color.white, R.color.teal_700,
-            40f
-        ).show()*/
+        /* UIToast.showToast(
+             context as Activity, "Test Toast",
+             Toast.LENGTH_LONG, R.drawable.custom_icon_tick, R.color.white, R.color.teal_700,
+             40f
+         ).show()*/
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        UIProgressDialog(context as Activity).hideProgressBar()
+        UIProgressBar.hideProgressBar()
         _binding = null
     }
 }

@@ -24,6 +24,17 @@
         android:text="Show Progress Dialog"
         android:textStyle="bold"
         android:layout_marginBottom="@dimen/dp_20"
+        app:layout_constraintBottom_toTopOf="@+id/show_ad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/show_ad"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:text="Show Alert Dialog"
+        android:textStyle="bold"
+        android:layout_marginBottom="@dimen/dp_20"
         app:layout_constraintBottom_toTopOf="@+id/show_rv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -40,24 +51,13 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
-        android:id="@+id/show_ad"
-        android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:text="Show Alert Dialog"
-        android:textStyle="bold"
-        android:layout_marginTop="@dimen/dp_20"
-        app:layout_constraintTop_toBottomOf="@+id/show_rv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
         android:id="@+id/show_toast"
         android:layout_width="250dp"
         android:layout_height="60dp"
         android:text="Show Toast"
         android:textStyle="bold"
         android:layout_marginTop="@dimen/dp_20"
-        app:layout_constraintTop_toBottomOf="@+id/show_ad"
+        app:layout_constraintTop_toBottomOf="@+id/show_rv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -69,6 +69,17 @@
         android:textStyle="bold"
         android:layout_marginTop="@dimen/dp_20"
         app:layout_constraintTop_toBottomOf="@+id/show_toast"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/show_time"
+        android:layout_width="250dp"
+        android:layout_height="60dp"
+        android:text="Show Time"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/dp_20"
+        app:layout_constraintTop_toBottomOf="@+id/show_calendar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
