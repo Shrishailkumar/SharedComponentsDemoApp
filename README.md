@@ -13,6 +13,50 @@
 - So that other sample app code can be added in similar manner as "Device Info" is being added.
 
 ### Developers can add there respective sample app code base here as an item in the navigation drawer.
+## vii.  Encryption/Decryption
+### AES Encryption Algorithm:
+Should pass password and input text as params. Both params are String
+
+```
+private lateinit var encryptionViewModal: EncryptionViewModal
+encryptionViewModal = ViewModelProvider(this).get(EncryptionViewModal::class.java)
+encryptionViewModal.aesEncryptAlgorithm("123456", input)
+```
+
+### AES Decryption Algorithm:
+Should pass password and input text as params. Both params are String. Here in below code input is encrypted text. The passwordshould be same for both encryption and decryption .
+
+```
+private lateinit var encryptionViewModal: EncryptionViewModal
+encryptionViewModal = ViewModelProvider(this).get(EncryptionViewModal::class.java)
+encryptionViewModal.aesDecryptionAlgorithm("123456", input)
+```
+
+### Generate RSA Secrete Key:
+
+Below code is to generate RSA  Secrete key.
+
+```
+val kpg = KeyPairGenerator.getInstance("RSA");
+        kpg.initialize(1024);
+        rsaKey = kpg.genKeyPair();
+```
+
+### RSA Encryption Algorithm:
+Should pass input and  key as parameter. Input should be string and  key should be PublicKey. It returns encrypted value in string.
+```
+private lateinit var encryptionViewModal: EncryptionViewModal
+encryptionViewModal = ViewModelProvider(this).get(EncryptionViewModal::class.java)
+encryptionViewModal.rsaEncryptAlgorithm(input, rsaKey.public)
+```
+
+### RSA Decryption Algorithm:
+Should pass input and  key as parameter. Input should be string (Encrypted value) and  key should be private key. It returns Decrypted  value in string.
+```
+private lateinit var encryptionViewModal: EncryptionViewModal
+encryptionViewModal = ViewModelProvider(this).get(EncryptionViewModal::class.java)
+encryptionViewModal.rsaDecryptAlgorithm(input, rsaKey.private)
+```
 
 ## viii. UI Utitlity Components
 
