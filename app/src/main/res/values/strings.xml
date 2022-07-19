@@ -21,14 +21,14 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="retrofit">Retrofit</string>
     <string name="volley">Volley</string>
-        <string-array name="algorithm_list">
-            <item>Select Algorithm</item>
-            <item>SHA 256</item>
-            <item>Base 64</item>
-            <item>MD5 Digest</item>
-          <item>aes algorithm</item>
-            <item>RSA algorithm</item>
-        </string-array>
+    <string-array name="algorithm_list">
+        <item>Select Algorithm</item>
+        <item>SHA 256</item>
+        <item>Base 64</item>
+        <item>MD5 Digest</item>
+        <item>aes 126 algorithm</item>
+        <item>RSA algorithm</item>
+    </string-array>
 
 
 </resources>

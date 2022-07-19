@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/backgroud_color"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -34,22 +35,19 @@
             android:id="@+id/okhttp_pinned"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="sendOkHttpPinned"
             android:text="OkHTTP pinned request" />
 
-        <Button
+       <!-- <Button
             android:id="@+id/volley_pinned"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="sendVolleyPinned"
-            android:text="Volley pinned request" />
+            android:text="Volley pinned request" />-->
 
 
         <Button
             android:id="@+id/manually_pinned"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="sendManuallyCustomPinned"
             android:text="Manually pinned request" />
 
     </LinearLayout>

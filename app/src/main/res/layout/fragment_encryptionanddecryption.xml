@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ebfaf8"
+    android:background="@color/backgroud_color"
     tools:context=".ui.encryptionanddecryption.Encryptionanddecryption">
 
     <LinearLayout
@@ -15,83 +15,89 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-    <EditText
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:id="@+id/encrypt_input"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:textSize="20sp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:textColor="@color/design_default_color_primary_dark"
-        android:hint="Enter Input to encrypt"
-        android:elevation="8dp"
-        android:padding="10dp"
-        android:background="@drawable/rect_border_elevated"
-        />
-    <TextView
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:id="@+id/encrypted_data"
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:layout_marginBottom="20dp"
-        android:textColor="@color/design_default_color_primary_dark"
-        android:textSize="20sp"
-        android:text="Encrypted Data: "
-        android:elevation="8dp"
-        android:padding="10dp"
-        android:background="@drawable/rect_border_elevated"
-       />
-              <Spinner
+
+        <Spinner
             android:id="@+id/algorithm_spinner"
             style="@style/spinner_style"
             android:layout_gravity="center_horizontal"
-            />
-        <Button
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/encrypt_input"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginBottom="20dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rect_border_elevated"
+            android:elevation="8dp"
+            android:hint="Enter Input to encrypt"
+            android:padding="10dp"
+            android:textColor="@color/design_default_color_primary_dark"
+            android:textColorHint="#78909C"
+            android:textSize="20sp" />
+
+
+
+        <TextView
+            android:id="@+id/encrypted_data"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/rect_border_elevated"
+            android:elevation="8dp"
+            android:padding="10dp"
+            android:text="Encrypted Data: "
+            android:textColor="@color/design_default_color_primary_dark"
+            android:textSize="20sp" />
+
+        <Button
             android:id="@+id/encrypt_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="20dp"
             android:layout_gravity="center_horizontal"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:text="encryption"
-            android:textColorHighlight="@color/white"
-            android:elevation="8dp"
-            />
-        <Button
+            android:layout_marginBottom="20dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:elevation="8dp"
+            android:text="encryption"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/white"
+            android:textSize="20sp" />
+
+        <Button
             android:id="@+id/decrypt_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
             android:layout_gravity="center_horizontal"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:text="Decryption"
-            android:elevation="8dp"
-            />
-        <Button
+            android:layout_marginBottom="20dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:elevation="8dp"
+            android:text="Decryption"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <Button
             android:id="@+id/ssl_certificate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:layout_marginTop="20dp"
             android:layout_gravity="center_horizontal"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:text="Redirect to SSL Certificate"
-            android:textColorHighlight="@color/white"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="60dp"
             android:elevation="8dp"
-            />
+            android:text="Redirect to SSL Certificate"
+            android:textColor="@color/white"
+            android:textColorHighlight="@color/white"
+            android:textSize="20sp" />
+
+
 
     </LinearLayout>
 

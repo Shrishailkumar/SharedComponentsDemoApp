@@ -13,6 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.android.appcomponents.model.EncryptionData
 import com.android.appcomponents.viewmodel.EncryptionViewModal
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.zensar.sharedcomponents.R
 import com.zensar.sharedcomponents.databinding.FragmentEncryptionanddecryptionBinding
 import java.security.KeyPair
@@ -31,7 +32,7 @@ class Encryptionanddecryption : Fragment() {
     private lateinit var mEncryptBtn: Button
     private lateinit var mDecryptBnt: Button
     private lateinit var mAlgorithmSpinner: Spinner
-    private lateinit var sslCerificateBtn : Button
+    private lateinit var sslCerificateBtn: Button
 
     private var selectedPosition: Int = 0
     lateinit var rsaKey: KeyPair
@@ -49,6 +50,9 @@ class Encryptionanddecryption : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentEncryptionanddecryptionBinding.inflate(inflater, container, false)
+        activity?.run {
+            findViewById<FloatingActionButton>(R.id.fab).visibility = View.GONE
+        }
         val root: View = binding.root
 
         mEncryptedText = binding.encryptedData
@@ -102,7 +106,7 @@ class Encryptionanddecryption : Fragment() {
             processDecryptAlgorithm()
 
         }
-        sslCerificateBtn.setOnClickListener(){
+        sslCerificateBtn.setOnClickListener() {
             val intent = Intent(requireActivity(), SSCertificateActivity::class.java)
             startActivity(intent)
         }
@@ -200,6 +204,7 @@ class Encryptionanddecryption : Fragment() {
 
 
     }
+
     private fun rsaDecryptAlgorithm() {
         activity?.let {
             val input: String = mEncryptedText.text.toString()
@@ -271,7 +276,8 @@ class Encryptionanddecryption : Fragment() {
         SecureRandom().nextBytes(iv)
         return iv
     }
-    private fun generateRSASecreteKey(){
+
+    private fun generateRSASecreteKey() {
         val kpg = KeyPairGenerator.getInstance("RSA");
         kpg.initialize(1024);
         rsaKey = kpg.genKeyPair();
