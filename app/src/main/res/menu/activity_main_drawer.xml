@@ -9,13 +9,13 @@
             android:icon="@mipmap/arrow_icon_right"
             android:title="@string/menu_deviceinfo" />
         <item
-            android:id="@+id/nav_camera_capture"
+            android:id="@+id/nav_fragment_encryption"
             android:icon="@mipmap/arrow_icon_right"
-            android:title="@string/menu_cameracapture" />
-        <!--<item
-            android:id="@+id/nav_fragment_service"
-            android:icon="@drawable/arrow_blue"
-            android:title="@string/menu_locationservices" />-->
+            android:title="@string/menu_encryptionanddecryption" />
+        <item
+            android:id="@+id/nav_fragment_component_ui"
+            android:icon="@mipmap/arrow_icon_right"
+            android:title="@string/menu_ui_component" />
         <item
             android:id="@+id/nav_fragment_scanner"
             android:icon="@mipmap/arrow_icon_right"
@@ -24,18 +24,18 @@
             android:id="@+id/nav_fragment_network"
             android:icon="@mipmap/arrow_icon_right"
             android:title="@string/menu_network_services" />
-
-        <item
-            android:id="@+id/nav_fragment_component_ui"
-            android:icon="@mipmap/arrow_icon_right"
-            android:title="@string/menu_ui_component" /> />
-        <item
-            android:id="@+id/nav_fragment_encryption"
-            android:icon="@mipmap/arrow_icon_right"
-            android:title="@string/menu_encryptionanddecryption" />
         <item
             android:id="@+id/nav_fragment_compass"
             android:icon="@mipmap/arrow_icon_right"
             android:title="@string/menu_compass" />
+        <item
+            android:id="@+id/nav_camera_capture"
+            android:icon="@mipmap/arrow_icon_right"
+            android:title="@string/menu_cameracapture" />
+        <!--<item
+            android:id="@+id/nav_fragment_service"
+            android:icon="@drawable/arrow_blue"
+            android:title="@string/menu_locationservices" />-->
+
     </group>
 </menu>
