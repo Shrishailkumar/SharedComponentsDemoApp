@@ -75,76 +75,6 @@ class UIComponentFragment : Fragment() {
         }
     }
 
-    private fun showTime() {
-        val uiTimePicker = UITimePicker().materialTimeBuilder().build()
-        uiTimePicker.show(parentFragmentManager, "UIComponentFragment")
-    }
-
-    private fun showCalendar() {
-        val dialog = Dialog(activity as Activity)
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
-        dialog.setCancelable(true)
-        dialog.setContentView(R.layout.ui_calendar)
-
-        val currentCalendar = Calendar.getInstance(Locale.getDefault())
-        val calendarView = dialog.findViewById<UICalendarView>(R.id.calendarView)
-
-        calendarView.apply {
-            //Show monday as first date of week
-            initDayOfWeek = Calendar.MONDAY
-
-            //Show/hide overflow days of a month
-            isOverflowDateVisible = false
-
-            calendarBackgroundColor =
-                (ContextCompat.getColor(activity as Activity, R.color.white))
-
-            calendarHeaderBackgroundColor =
-                (ContextCompat.getColor(activity as Activity, android.R.color.holo_purple))
-            calendarTitleTextColor = (ContextCompat.getColor(activity as Activity, R.color.black))
-            weekLayoutBackgroundColor =
-                (ContextCompat.getColor(activity as Activity, R.color.white))
-            dayOfWeekTextColor = (ContextCompat.getColor(activity as Activity, R.color.black))
-            dayOfMonthTextColor = (ContextCompat.getColor(activity as Activity, R.color.black))
-            disabledDayBackgroundColor =
-                (ContextCompat.getColor(activity as Activity, R.color.disabled_grey_light))
-            disabledDayTextColor =
-                (ContextCompat.getColor(activity as Activity, R.color.day_disabled_text_color))
-            selectedDayBackground =
-                (ContextCompat.getColor(activity as Activity, android.R.color.holo_green_dark))
-            selectedDayTextColor = (ContextCompat.getColor(activity as Activity, R.color.white))
-            currentDayOfMonth =
-                (ContextCompat.getColor(activity as Activity, R.color.sky_blue))
-
-            //call refreshCalendar to update calendar the view
-            refreshCalendar(currentCalendar)
-        }.setUICalendarListener(object : UICalendarListener {
-
-            override fun onDateSelected(date: Date) {
-                val df = SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH)
-                Toast.makeText(activity as Activity, df.format(date), Toast.LENGTH_SHORT)
-                    .show()
-            }
-
-            override fun onLongClick(date: Date) {
-                val df = SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH)
-                Toast.makeText(activity as Activity, df.format(date), Toast.LENGTH_SHORT)
-                    .show()
-            }
-
-            override fun onMonthChanged(date: Date) {
-                val df = SimpleDateFormat("MM-yyyy", Locale.ENGLISH)
-                Toast.makeText(activity as Activity, df.format(date), Toast.LENGTH_SHORT)
-                    .show()
-            }
-        })
-        dialog.show()
-    }
-
-    private fun showRecyclerView() {
-        findNavController().navigate(R.id.action_nav_fragment_component_ui_to_recyclerviewFragment)
-    }
-
     private fun initSnackBar() {
         snackBar = UISnackBar(context as Activity).apply {
             backgroundColorRes(R.color.purple_500)
@@ -155,6 +85,13 @@ class UIComponentFragment : Fragment() {
             textColorRes(R.color.white)
             message("Test UISnackBar")
         }
+    }
+
+    private fun showProgressDialog() {
+        UIProgressBar.showProgressBar(
+            context as Activity, "Loading...",
+            ContextCompat.getColor(context as Activity, R.color.purple_200)
+        )
     }
 
     private fun showAlertDialog() {
@@ -206,11 +143,8 @@ class UIComponentFragment : Fragment() {
             }*/
     }
 
-    private fun showProgressDialog() {
-        UIProgressBar.showProgressBar(
-            context as Activity, "Loading..",
-            ContextCompat.getColor(context as Activity, R.color.purple_200), true
-        )
+    private fun showRecyclerView() {
+        findNavController().navigate(R.id.action_nav_fragment_component_ui_to_recyclerviewFragment)
     }
 
     private fun showToast() {
@@ -229,6 +163,84 @@ class UIComponentFragment : Fragment() {
              Toast.LENGTH_LONG, R.drawable.custom_icon_tick, R.color.white, R.color.teal_700,
              40f
          ).show()*/
+    }
+
+    private fun showCalendar() {
+        val dialog = Dialog(activity as Activity)
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog.setCancelable(true)
+        dialog.setContentView(R.layout.ui_calendar)
+
+        val currentCalendar = Calendar.getInstance(Locale.getDefault())
+        val calendarView = dialog.findViewById<UICalendarView>(R.id.calendarView)
+
+        calendarView.apply {
+            //Show monday as first date of week
+            initDayOfWeek = Calendar.MONDAY
+
+            //Show/hide overflow days of a month
+            isOverflowDateVisible = false
+
+            calendarBackgroundColor =
+                (ContextCompat.getColor(activity as Activity, R.color.white))
+
+            calendarHeaderBackgroundColor =
+                (ContextCompat.getColor(activity as Activity, android.R.color.holo_purple))
+            calendarTitleTextColor = (ContextCompat.getColor(activity as Activity, R.color.black))
+            weekLayoutBackgroundColor =
+                (ContextCompat.getColor(activity as Activity, R.color.white))
+            dayOfWeekTextColor = (ContextCompat.getColor(activity as Activity, R.color.black))
+            dayOfMonthTextColor = (ContextCompat.getColor(activity as Activity, R.color.black))
+            disabledDayBackgroundColor =
+                (ContextCompat.getColor(activity as Activity, R.color.disabled_grey_light))
+            disabledDayTextColor =
+                (ContextCompat.getColor(activity as Activity, R.color.day_disabled_text_color))
+            selectedDayBackground =
+                (ContextCompat.getColor(activity as Activity, android.R.color.holo_green_dark))
+            selectedDayTextColor = (ContextCompat.getColor(activity as Activity, R.color.white))
+            currentDayOfMonth =
+                (ContextCompat.getColor(activity as Activity, R.color.sky_blue))
+
+            //call refreshCalendar to update calendar the view
+            refreshCalendar(currentCalendar)
+        }.setUICalendarListener(object : UICalendarListener {
+
+            override fun onDateSelected(date: Date) {
+                val df = SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH)
+                UIToast.showToast(activity as Activity, df.format(date), Toast.LENGTH_SHORT)
+                    .show()
+            }
+
+            override fun onLongClick(date: Date) {
+                val df = SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH)
+                UIToast.showToast(activity as Activity, df.format(date), Toast.LENGTH_SHORT)
+                    .show()
+            }
+
+            override fun onMonthChanged(date: Date) {
+                val df = SimpleDateFormat("MM-yyyy", Locale.ENGLISH)
+                UIToast.showToast(activity as Activity, df.format(date), Toast.LENGTH_SHORT)
+                    .show()
+            }
+        })
+        dialog.show()
+    }
+
+    private fun showTime() {
+        val materialTimePicker = UITimePicker().materialTimeBuilder(
+            R.style.Theme_DemoAppsForSharedComponent_TimePicker
+        ).build()
+
+        materialTimePicker.show(parentFragmentManager, "UIComponentFragment")
+        materialTimePicker.addOnPositiveButtonClickListener {
+            val pickedHour: Int = materialTimePicker.hour
+            val pickedMinute: Int = materialTimePicker.minute
+
+            UIToast.showToast(
+                context as Activity, "Selected $pickedHour:$pickedMinute",
+                Toast.LENGTH_LONG, R.drawable.custom_icon_tick, R.color.sky_blue, R.color.white
+            ).show()
+        }
     }
 
     override fun onDestroyView() {

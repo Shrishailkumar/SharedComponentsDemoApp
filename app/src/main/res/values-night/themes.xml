@@ -26,4 +26,19 @@
         <item name="android:windowMinWidthMajor">@android:dimen/dialog_min_width_major</item>
         <item name="android:windowMinWidthMinor">100%</item>
     </style>
+
+    <style name="Theme.DemoAppsForSharedComponent.TimePicker" parent="ThemeOverlay.MaterialComponents.TimePicker" >
+        <item name="colorPrimary">@color/clock_500</item>
+        <item name="colorOnPrimary">@color/clock_900</item>
+        <item name="colorOnSurface">@color/clock_100</item>
+        <item name="chipStyle">@style/Widget.App.Chip</item>
+    </style>
+
+    <style name="Widget.App.Chip" parent="Widget.MaterialComponents.TimePicker.Display">
+        <item name="android:textColor">@color/clock_text</item>
+    </style>
+
+    <!--<style name="Widget.App.TimePicker.Clock" parent="Widget.MaterialComponents.TimePicker.Clock">
+        <item name="android:background"></item>
+    </style>-->
 </resources>
