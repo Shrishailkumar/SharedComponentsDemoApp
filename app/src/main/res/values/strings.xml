@@ -26,7 +26,7 @@
         <item>SHA 256</item>
         <item>Base 64</item>
         <item>MD5 Digest</item>
-        <item>aes 126 algorithm</item>
+        <item>aes 128 algorithm</item>
         <item>RSA algorithm</item>
     </string-array>
 
