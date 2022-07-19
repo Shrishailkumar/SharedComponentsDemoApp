@@ -7,15 +7,18 @@
     android:background="@color/backgroud_color"
     tools:context=".ui.encryptionanddecryption.Encryptionanddecryption">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+    <ScrollView
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_marginTop="20dp"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
         <Spinner
             android:id="@+id/algorithm_spinner"
             style="@style/spinner_style"
@@ -37,9 +40,6 @@
             android:textColor="@color/design_default_color_primary_dark"
             android:textColorHint="#78909C"
             android:textSize="20sp" />
-
-
-
         <TextView
             android:id="@+id/encrypted_data"
             android:layout_width="match_parent"
@@ -96,10 +96,7 @@
             android:textColor="@color/white"
             android:textColorHighlight="@color/white"
             android:textSize="20sp" />
-
-
-
     </LinearLayout>
-
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
