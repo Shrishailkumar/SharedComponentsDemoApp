@@ -7,14 +7,18 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
+import androidx.annotation.MainThread
+import androidx.fragment.app.DialogFragment
 import com.android.appcomponents.util.CompassUtility
 import com.zensar.sharedcomponents.R
+import com.zensar.sharedcomponents.databinding.CompassDialogBinding
 import com.zensar.sharedcomponents.databinding.CompassFragmentBinding
 import kotlin.math.roundToInt
 
-class CompassDemoFragment : Fragment() {
-    private lateinit var binding: CompassFragmentBinding
+class CompassWidget : DialogFragment() {
+
+    private var mView: View? = null
+    private lateinit var dialogBinding: CompassDialogBinding
     private lateinit var compassUtility: CompassUtility
     private lateinit var mContext : Context;
 
@@ -29,12 +33,16 @@ class CompassDemoFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         compassUtility = CompassUtility.getInstance(mContext)
-        binding = CompassFragmentBinding.inflate(inflater, container, false)
-        binding.compassView.setBackgroundResource(0)
+        // either this way we can init dialogBinding
+        dialogBinding = CompassDialogBinding.inflate(inflater, container, false)
+        dialogBinding.compassView.setBackgroundResource(0)
+        dialogBinding.appCompatTextView.setText("")
+        dialogBinding.tvAngle.setTextColor(resources.getColor(R.color.white))
         compassUtility.getCompassAngleLiveData().observe(viewLifecycleOwner) {
-            binding.tvAngle.text = it.roundToInt().toString()
+            dialogBinding.tvAngle.text = it.roundToInt().toString()
+            getDialog()?.getWindow()?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         }
-        val root: View = binding.root
+        val root: View = dialogBinding.root
 
 
         return root
@@ -49,4 +57,11 @@ class CompassDemoFragment : Fragment() {
         super.onPause()
         compassUtility.stopListening()
     }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        mView = null
+    }
+
+
 }

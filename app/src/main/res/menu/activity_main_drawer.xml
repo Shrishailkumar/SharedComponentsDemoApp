@@ -34,7 +34,7 @@
             android:icon="@mipmap/arrow_icon_right"
             android:title="@string/menu_encryptionanddecryption" />
         <item
-            android:id="@+id/nav_compass"
+            android:id="@+id/nav_fragment_compass"
             android:icon="@mipmap/arrow_icon_right"
             android:title="@string/menu_compass" />
     </group>

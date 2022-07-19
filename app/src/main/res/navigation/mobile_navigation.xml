@@ -37,7 +37,7 @@
 
     <fragment
         android:id="@+id/nav_compass"
-        android:name="com.zensar.sharedcomponents.ui.compass.CompassDemoFragment"
+        android:name="com.zensar.sharedcomponents.ui.compass.CompassFragment"
         android:label="@string/menu_compass"
         tools:layout="@layout/compass_fragment" />
 
@@ -75,6 +75,32 @@
             android:id="@+id/action_nav_fragment_component_ui_to_recyclerviewFragment"
             app:destination="@id/recyclerviewFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/nav_fragment_compass"
+        android:name="com.zensar.sharedcomponents.ui.compass.CompassFragment"
+        android:label="@string/menu_compass"
+        tools:layout="@layout/compass_view_type" >
+        <action
+            android:id="@+id/action_nav_fragment_component_ui_to_compassview1"
+            app:destination="@id/compassUi1" />
+        <action
+            android:id="@+id/action_nav_fragment_component_ui_to_compassview2"
+            app:destination="@id/compassUi2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/compassUi1"
+        android:name="com.zensar.sharedcomponents.ui.compass.CompassDemoFragment"
+        android:label="Compass View"
+        tools:layout="@layout/compass_fragment" />
+
+    <fragment
+        android:id="@+id/compassUi2"
+        android:name="com.zensar.sharedcomponents.ui.compass.CompassBasicView"
+        android:label="Compass View"
+        tools:layout="@layout/basic_compass_fragment" />
+
     <fragment
         android:id="@+id/recyclerviewFragment"
         android:name="com.zensar.sharedcomponents.ui.uicomponent.RecyclerviewFragment"

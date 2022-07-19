@@ -1,8 +1,6 @@
 package com.zensar.sharedcomponents.ui.compass
 
 import android.content.Context
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,17 +8,17 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.android.appcomponents.util.CompassUtility
 import com.zensar.sharedcomponents.R
+import com.zensar.sharedcomponents.databinding.BasicCompassFragmentBinding
 import com.zensar.sharedcomponents.databinding.CompassFragmentBinding
 import kotlin.math.roundToInt
 
-class CompassDemoFragment : Fragment() {
-    private lateinit var binding: CompassFragmentBinding
+class CompassBasicView : Fragment() {
+    private lateinit var binding: BasicCompassFragmentBinding
     private lateinit var compassUtility: CompassUtility
-    private lateinit var mContext : Context;
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        mContext = context
+        compassUtility = CompassUtility.getInstance(context)
     }
 
     override fun onCreateView(
@@ -28,9 +26,7 @@ class CompassDemoFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        compassUtility = CompassUtility.getInstance(mContext)
-        binding = CompassFragmentBinding.inflate(inflater, container, false)
-        binding.compassView.setBackgroundResource(0)
+        binding = BasicCompassFragmentBinding.inflate(inflater, container, false)
         compassUtility.getCompassAngleLiveData().observe(viewLifecycleOwner) {
             binding.tvAngle.text = it.roundToInt().toString()
         }

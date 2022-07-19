@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#00000000"
     android:id="@+id/main_compass_view">
 
     <androidx.appcompat.widget.AppCompatTextView
@@ -21,9 +22,9 @@
         android:id="@+id/compass_view"
         android:layout_width="275dp"
         android:layout_height="275dp"
-        android:layout_marginTop="30dp"
-        app:compassBackgroundSrc="@drawable/compass_view01"
-        app:compassNeedleSrc="@drawable/compass_needle_1"
+        android:layout_marginTop="24dp"
+        app:compassBackgroundSrc="@drawable/compass_dialog"
+        app:compassNeedleSrc="@drawable/compass_needle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appCompatTextView" />
@@ -35,6 +36,7 @@
         android:layout_margin="20dp"
         android:text="Angle from North"
         android:textSize="18sp"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/compass_view" />
