@@ -167,7 +167,7 @@ class Encryptionanddecryption : Fragment() {
         activity?.let {
             val input: String = mEncryptedText.text.toString()
             context?.let { it1 ->
-                encryptionViewModal.toBase64Dncode(input)
+                encryptionViewModal.toBase64Decode(input)
                     .observe(it, Observer<EncryptionData?> {
                         updateUI(it)
                     })
