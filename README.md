@@ -58,6 +58,55 @@ encryptionViewModal = ViewModelProvider(this).get(EncryptionViewModal::class.jav
 encryptionViewModal.rsaDecryptAlgorithm(input, rsaKey.private)
 ```
 
+### hMacSha256Algoritham:
+Should pass input and  key as parameter. Input should be string  and  key is also string. It returns Livedata.
+```
+private lateinit var encryptionViewModal: EncryptionViewModal
+encryptionViewModal = ViewModelProvider(this).get(EncryptionViewModal::class.java)
+encryptionViewModal.hMacSha256Algoritham(key, input)
+```
+
+### Base64Encode:
+Should pass input as parameter. Input should be string . It returns Livedata.
+```
+private lateinit var encryptionViewModal: EncryptionViewModal
+encryptionViewModal = ViewModelProvider(this).get(EncryptionViewModal::class.java)
+encryptionViewModal.toBase64Encode(input)
+```
+### Base64Decode:
+Should pass input as parameter. Input should be string . It returns Livedata (Decrypted value).
+```
+private lateinit var encryptionViewModal: EncryptionViewModal
+encryptionViewModal = ViewModelProvider(this).get(EncryptionViewModal::class.java)
+encryptionViewModal.toBase64Dncode(input)
+```
+### md5Digest:
+Should pass input as parameter. Input should be string . It returns Livedata (Decrypted value).
+```
+private lateinit var encryptionViewModal: EncryptionViewModal
+encryptionViewModal = ViewModelProvider(this).get(EncryptionViewModal::class.java)
+encryptionViewModal.md5Digest(input)
+```
+
+
+### OkHTTP Certificate Pinnig:
+ Method for OkHTTPPinning. It will take hostName and secreteKey as parameter
+ return OkHttpClient 
+```
+ val client = SSLCertificate.sendOkHttpPinned("hostname", "YOUR SECRETE KEY")
+```
+
+
+### ManuallyCustomPinned:
+ Method to Verify Hostname is trustable or not. It will take hostName, secreteKey and portNumeber as parameter
+ if host name is trustable it will return true else return false
+```
+SSLCertificate.sendManuallyCustomPinned(
+                        "YOUR SECRETE KEY",
+                        "Your Host Name",
+                        Port number (INT)
+                    )
+```
 ## viii. UI Utitlity Components
 
 ### Snackbar:
