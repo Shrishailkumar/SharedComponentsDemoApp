@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.appBarMain.toolbar)
-        AppContext.Companion.setContext(application);
+        AppContext.Companion.setContext(application)
 
         binding.appBarMain.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
@@ -39,8 +39,10 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_deviceinfo, R.id.nav_camera_capture, R.id.nav_fragment_scanner,R.id.nav_fragment_encryption,
-                 R.id.nav_fragment_component_ui, R.id.nav_compass
+                R.id.nav_deviceinfo, R.id.nav_camera_capture,
+                R.id.nav_fragment_scanner, R.id.nav_fragment_encryption,
+                R.id.nav_fragment_component_ui, R.id.nav_compass,
+                R.id.nav_geofence
             ), drawerLayout
         )
         navView.setItemIconTintList(null)

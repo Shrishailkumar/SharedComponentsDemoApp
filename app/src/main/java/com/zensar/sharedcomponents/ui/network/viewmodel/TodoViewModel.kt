@@ -58,7 +58,7 @@ class TodoViewModel(ctx: Fragment): ViewModel() {
 
 //Create factory for passing paras in ToDoViewModel
 class TodoViewModelFactory(private val ctx: Fragment): ViewModelProvider.Factory {
-    override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return TodoViewModel(ctx) as T
     }
 

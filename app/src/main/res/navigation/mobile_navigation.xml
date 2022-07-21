@@ -107,5 +107,12 @@
         android:label="fragment_recyclerview"
         tools:layout="@layout/fragment_recyclerview" />
 
+    <fragment
+        android:id="@+id/nav_geofence"
+        android:name="com.zensar.sharedcomponents.ui.geofence.GeoFenceFragment"
+        android:label="Geo Fencing"
+        tools:layout="@layout/fragment_geo_fence" >
+    </fragment>
+
 
 </navigation>

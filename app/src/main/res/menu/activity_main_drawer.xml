@@ -32,6 +32,11 @@
             android:id="@+id/nav_camera_capture"
             android:icon="@mipmap/arrow_icon_right"
             android:title="@string/menu_cameracapture" />
+
+        <item
+            android:id="@+id/nav_geofence"
+            android:icon="@mipmap/arrow_icon_right"
+            android:title="@string/menu_geofence" />
         <!--<item
             android:id="@+id/nav_fragment_service"
             android:icon="@drawable/arrow_blue"
