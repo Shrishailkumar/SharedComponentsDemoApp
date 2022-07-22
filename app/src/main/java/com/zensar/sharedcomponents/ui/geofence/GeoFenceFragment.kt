@@ -47,7 +47,7 @@ class GeoFenceFragment : Fragment(), IGeofenceReceiver {
 
         geofenceViewModel = ViewModelProvider(this).get(GeofenceViewModel::class.java)
         binding!!.geoFenceCallbackBtn.setOnClickListener {
-            geofenceViewModel.addGeofence(18.4516,73.9149,100f)
+            geofenceViewModel.addGeofence(requireActivity(),18.4516,73.9149,200f)
         }
         return root
     }
